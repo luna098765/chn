@@ -1,0 +1,107 @@
+   // library_system.c
+   #include <stdio.h>
+   #include <string.h>
+
+   typedef struct {
+       char name[50];
+       int id;
+   } Reader;
+
+   typedef struct {
+       char name[50];
+       int id;
+   } Librarian;
+
+   typedef struct {
+       char name[50];
+       int id;
+   } Administrator;
+
+   // Reader methods
+   void placeOrder(Reader* r) {
+       printf("%s placed an order.\n", r->name);
+   }
+
+   void searchCatalog(Reader* r) {
+       printf("%s is searching the catalog.\n", r->name);
+   }
+
+   void returnBook(Reader* r) {
+       printf("%s returned a book.\n", r->name);
+   }
+
+   void payFine(Reader* r) {
+       printf("%s paid a fine.\n", r->name);
+   }
+
+   void blacklist(Reader* r) {
+       printf("%s has been blacklisted.\n", r->name);
+   }
+
+   // Librarian methods
+   void issueBook(Librarian* l) {
+       printf("%s issued a book.\n", l->name);
+   }
+
+   void checkOrder(Librarian* l) {
+       printf("%s checked an order.\n", l->name);
+   }
+
+   void manageCatalog(Librarian* l) {
+       printf("%s is managing the catalog.\n", l->name);
+   }
+
+   void blacklistReader(Librarian* l, Reader* r) {
+       printf("%s blacklisted %s.\n", l->name, r->name);
+   }
+
+   void receiveReturns(Librarian* l) {
+       printf("%s received returns.\n", l->name);
+   }
+
+   // Administrator methods
+   void manageUsers(Administrator* a) {
+       printf("%s is managing users.\n", a->name);
+   }
+
+   void manageBooks(Administrator* a) {
+       printf("%s is managing books.\n", a->name);
+   }
+
+   void blacklistReaderAdmin(Administrator* a, Reader* r) {
+       printf("%s blacklisted %s.\n", a->name, r->name);
+   }
+
+   void generateReports(Administrator* a) {
+       printf("%s generated reports.\n", a->name);
+   }
+
+   void handleComplaints(Administrator* a) {
+       printf("%s handled complaints.\n", a->name);
+   }
+
+   int main() {
+       Reader reader = {"Alice", 1};
+       Librarian librarian = {"Bob", 2};
+       Administrator admin = {"Charlie", 3};
+
+       placeOrder(&reader);
+       searchCatalog(&reader);
+       returnBook(&reader);
+       payFine(&reader);
+       blacklist(&reader);
+
+       issueBook(&librarian);
+       checkOrder(&librarian);
+       manageCatalog(&librarian);
+       blacklistReader(&librarian, &reader);
+       receiveReturns(&librarian);
+
+       manageUsers(&admin);
+       manageBooks(&admin);
+       blacklistReaderAdmin(&admin, &reader);
+       generateReports(&admin);
+       handleComplaints(&admin);
+
+       return 0;
+   }
